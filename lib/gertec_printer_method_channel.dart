@@ -12,28 +12,28 @@ class MethodChannelGertecPrinter extends GertecPrinterPlatform {
   final methodChannel = const MethodChannel('gertec_printer');
 
   @override
-  Future<String?> getPlatformVersion() async {
+  Future<String> getPlatformVersion() async {
     final version =
         await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
 
   @override
-  Future<String?> startTransaction() async {
+  Future<String> startTransaction() async {
     final transaction =
         await methodChannel.invokeMethod<String>('START_TRANSACTION');
     return transaction;
   }
 
   @override
-  Future<String?> finishTransaction() async {
+  Future<String> finishTransaction() async {
     final transaction =
         await methodChannel.invokeMethod<String>('PRINT_BUFFER');
     return transaction;
   }
 
   @override
-  Future<String?> printText(GertecText textObject) async {
+  Future<String> printText(GertecText textObject) async {
     final version = await methodChannel
         .invokeMethod<String>('PRINT_TEXT', {'args': textObject.toMap()});
     return version;
@@ -41,33 +41,29 @@ class MethodChannelGertecPrinter extends GertecPrinterPlatform {
 
   @override
   Future<void> wrapLine(int lines) async {
-    await methodChannel.invokeMethod<String?>('WRAP_LINE', {"lines": lines});
+    await methodChannel.invokeMethod<String>('WRAP_LINE', {"lines": lines});
   }
 
   @override
-  Future<String?> cutPaper(CutPaperType type) async {
+  Future<String> cutPaper(CutPaperType type) async {
     return await methodChannel.invokeMethod('CUT_PAPER', {"cut": type.value});
   }
 
   @override
-  Future<String?> printQrcode(
-      {required int width, required int height, required String text}) async {
+  Future<String> printQrcode({int width, int height, String text}) async {
     return await methodChannel.invokeMethod(
         'PRINT_QRCODE', {"width": width, 'height': height, 'text': text});
   }
 
   @override
-  Future<String?> printBarCode(
-      {required int width,
-      required int height,
-      required String text,
-      required int align}) async {
+  Future<String> printBarCode(
+      {int width, int height, String text, int align}) async {
     return await methodChannel.invokeMethod('PRINT_BARCODE',
         {'width': width, 'height': height, 'text': text, 'align': align});
   }
 
   @override
-  Future<String?> printImage(Uint8List image, int align) async {
+  Future<String> printImage(Uint8List image, int align) async {
     Map<String, dynamic> arguments = <String, dynamic>{
       "data": image,
       'align': align
@@ -77,19 +73,19 @@ class MethodChannelGertecPrinter extends GertecPrinterPlatform {
   }
 
   @override
-  Future<String?> printRaw(Uint8List data) async {
+  Future<String> printRaw(Uint8List data) async {
     Map<String, dynamic> arguments = <String, dynamic>{"data": data};
 
     return await methodChannel.invokeMethod('PRINT_RAW', arguments);
   }
 
   @override
-  Future<String?> printerState() async {
+  Future<String> printerState() async {
     return await methodChannel.invokeMethod('PRINTER_STATE');
   }
 
   @override
-  Future<String?> readCamera() async {
+  Future<String> readCamera() async {
     return await methodChannel.invokeMethod('READ_CAMERA');
   }
 }

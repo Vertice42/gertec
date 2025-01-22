@@ -4,9 +4,8 @@ version: 0.0.8
 homepage: https://github.com/brasizza/gertec
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
-  flutter: ">=3.3.0"
-
+  sdk: ">=2.7.0 <3.0.0"
+  
 dependencies:
   flutter:
     sdk: flutter

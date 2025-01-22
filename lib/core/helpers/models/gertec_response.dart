@@ -7,14 +7,14 @@ class GertecResponse {
   final bool success;
   final dynamic content;
   GertecResponse({
-    required this.message,
-    required this.success,
-    required this.content,
+    this.message,
+    this.success,
+    this.content,
   });
 
   GertecResponse copyWith({
-    String? message,
-    bool? success,
+    String message,
+    bool success,
     dynamic content,
   }) {
     return GertecResponse(

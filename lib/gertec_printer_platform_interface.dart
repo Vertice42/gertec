@@ -27,11 +27,11 @@ abstract class GertecPrinterPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<String> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<String?> printText(GertecText textObject) {
+  Future<String> printText(GertecText textObject) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
@@ -39,44 +39,44 @@ abstract class GertecPrinterPlatform extends PlatformInterface {
     throw UnimplementedError('wrapLine() has not been implemented.');
   }
 
-  Future<String?> cutPaper(CutPaperType type) {
+  Future<String> cutPaper(CutPaperType type) {
     throw UnimplementedError('cutPaper() has not been implemented.');
   }
 
-  Future<String?> printRaw(Uint8List data) {
+  Future<String> printRaw(Uint8List data) {
     throw UnimplementedError('printRaw() has not been implemented.');
   }
 
-  Future<String?> printBarCode(
-      {required int width,
-      required int height,
-      required String text,
-      required int align}) {
+  Future<String> printBarCode(
+      { int width,
+       int height,
+       String text,
+       int align}) {
     throw UnimplementedError('printBarCode() has not been implemented.');
   }
 
-  Future<String?> printQrcode(
-      {required int width, required int height, required String text}) {
+  Future<String> printQrcode(
+      { int width,  int height,  String text}) {
     throw UnimplementedError('printQrcode() has not been implemented.');
   }
 
-  Future<String?> printImage(Uint8List image, int align) {
+  Future<String> printImage(Uint8List image, int align) {
     throw UnimplementedError('printImage() has not been implemented.');
   }
 
-  Future<String?> printerState() async {
+  Future<String> printerState() async {
     throw UnimplementedError('printerState() has not been implemented.');
   }
 
-  Future<String?> readCamera() async {
+  Future<String> readCamera() async {
     throw UnimplementedError('printerState() has not been implemented.');
   }
 
-  Future<String?> startTransaction() async {
+  Future<String> startTransaction() async {
     throw UnimplementedError('startTransaction() has not been implemented.');
   }
 
-  Future<String?> finishTransaction() async {
+  Future<String> finishTransaction() async {
     throw UnimplementedError('finishTranscation() has not been implemented.');
   }
 }

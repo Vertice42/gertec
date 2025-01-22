@@ -14,7 +14,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   MyAppState createState() => MyAppState();
@@ -34,7 +34,7 @@ class MyAppState extends State<MyApp> {
 }
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key key}) : super(key: key);
 
   @override
   HomeState createState() => HomeState();
@@ -291,7 +291,7 @@ class HomeState extends State<Home> {
                                 await _gertecPrinterPlugin.readCamera();
                             setState(() {
                               if (cameraData.success == true) {
-                                textScan = (cameraData.content as String?) ??
+                                textScan = (cameraData.content as String) ??
                                     'Fail to read, try again';
                               } else {
                                 textScan = 'Fail to read, try again';

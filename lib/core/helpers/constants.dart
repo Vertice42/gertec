@@ -1,62 +1,79 @@
 // ignore_for_file: constant_identifier_names
 
-enum BarCodeType {
-  BARCODE_TYPE_UPCA(65),
-  BARCODE_TYPE_UPCE(66),
-  BARCODE_TYPE_JAN13(67),
-  BARCODE_TYPE_JAN8(68),
-  BARCODE_TYPE_CODE39(69),
-  BARCODE_TYPE_ITF(70),
-  BARCODE_TYPE_CODEBAR(71),
-  BARCODE_TYPE_CODE93(72),
-  BARCODE_TYPE_CODE128(73);
+class BarCodeType {
+  static const BARCODE_TYPE_UPCA = BarCodeType._(65);
+  static const BARCODE_TYPE_UPCE = BarCodeType._(66);
+  static const BARCODE_TYPE_JAN13 = BarCodeType._(67);
+  static const BARCODE_TYPE_JAN8 = BarCodeType._(68);
+  static const BARCODE_TYPE_CODE39 = BarCodeType._(69);
+  static const BARCODE_TYPE_ITF = BarCodeType._(70);
+  static const BARCODE_TYPE_CODEBAR = BarCodeType._(71);
+  static const BARCODE_TYPE_CODE93 = BarCodeType._(72);
+  static const BARCODE_TYPE_CODE128 = BarCodeType._(73);
 
-  const BarCodeType(this.value);
   final int value;
+
+  const BarCodeType._(this.value);
 }
 
-enum PrintAlign {
-  LEFT(0),
-  CENTER(1),
-  RIGHT(2);
+class PrintAlign {
+  static const LEFT = PrintAlign._(0);
+  static const CENTER = PrintAlign._(1);
+  static const RIGHT = PrintAlign._(2);
 
   final int value;
-  const PrintAlign(this.value);
+  const PrintAlign._(this.value);
 }
 
-enum CutPaperType {
-  HALF(1),
-  FULL(0);
+class CutPaperType {
+  static const HALF = CutPaperType._(1);
+  static const FULL = CutPaperType._(0);
 
   final int value;
-  const CutPaperType(this.value);
+  const CutPaperType._(this.value);
 }
 
-enum PrinterState {
-  PRINTER_STATE_NORMAL(0),
-  PRINTER_STATE_NOPAPER(1),
-  PRINTER_STATE_HIGHTEMP(2),
-  PRINTER_STATE_UNKNOWN(3),
-  PRINTER_STATE_NOT_OPEN(4),
-  PRINTER_STATE_DEV_ERROR(5),
-  PRINTER_STATE_LOWVOL_ERROR(6),
-  PRINTER_STATE_BUSY(7),
-  PRINTER_STATE_CUT(8),
-  PRINTER_STATE_OUT(9),
-  PRINTER_PAPER_RUN_OUT(10),
-  PRINTER_COVER_OPEN(11),
-  PRINT_ERROR_PARAMETER(12);
+class PrinterState {
+  static const PRINTER_STATE_NORMAL = PrinterState._(0);
+  static const PRINTER_STATE_NOPAPER = PrinterState._(1);
+  static const PRINTER_STATE_HIGHTEMP = PrinterState._(2);
+  static const PRINTER_STATE_UNKNOWN = PrinterState._(3);
+  static const PRINTER_STATE_NOT_OPEN = PrinterState._(4);
+  static const PRINTER_STATE_DEV_ERROR = PrinterState._(5);
+  static const PRINTER_STATE_LOWVOL_ERROR = PrinterState._(6);
+  static const PRINTER_STATE_BUSY = PrinterState._(7);
+  static const PRINTER_STATE_CUT = PrinterState._(8);
+  static const PRINTER_STATE_OUT = PrinterState._(9);
+  static const PRINTER_PAPER_RUN_OUT = PrinterState._(10);
+  static const PRINTER_COVER_OPEN = PrinterState._(11);
+  static const PRINT_ERROR_PARAMETER = PrinterState._(12);
 
-  const PrinterState(this.value);
   final int value;
+  const PrinterState._(this.value);
+  static const values = [
+    PRINTER_STATE_NORMAL,
+    PRINTER_STATE_NOPAPER,
+    PRINTER_STATE_HIGHTEMP,
+    PRINTER_STATE_UNKNOWN,
+    PRINTER_STATE_NOT_OPEN,
+    PRINTER_STATE_DEV_ERROR,
+    PRINTER_STATE_LOWVOL_ERROR,
+    PRINTER_STATE_BUSY,
+    PRINTER_STATE_CUT,
+    PRINTER_STATE_OUT,
+    PRINTER_PAPER_RUN_OUT,
+    PRINTER_COVER_OPEN,
+    PRINT_ERROR_PARAMETER,
+  ];
 }
 
-enum FontSize {
-  SMALL(4),
-  NORMAL(8),
-  LARGE(16),
-  XLARGE(24);
+class FontSize {
+  static const SMALL = FontSize._(4);
+  static const NORMAL = FontSize._(8);
+  static const LARGE = FontSize._(16);
+  static const XLARGE = FontSize._(24);
 
   final int value;
-  const FontSize(this.value);
+  const FontSize._(this.value);
+  static const values = [SMALL, NORMAL, LARGE, XLARGE];
 }

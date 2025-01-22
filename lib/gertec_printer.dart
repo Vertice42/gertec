@@ -45,7 +45,7 @@ class GertecPrinter {
   Future<GertecResponse> printBarCode(
       {int width = 200,
       int height = 60,
-      required String text,
+      String text,
       PrintAlign align = PrintAlign.LEFT}) async {
     return GertecResponse.fromJson(await GertecPrinterPlatform.instance
             .printBarCode(
@@ -54,14 +54,14 @@ class GertecPrinter {
   }
 
   Future<GertecResponse> printQrcode(
-      {int width = 100, int height = 100, required String text}) async {
+      {int width = 100, int height = 100, String text}) async {
     return GertecResponse.fromJson(await GertecPrinterPlatform.instance
             .printQrcode(width: width, height: height, text: text) ??
         '{}');
   }
 
   Future<GertecResponse> printImage(
-      {required Uint8List image, PrintAlign align = PrintAlign.LEFT}) async {
+      {Uint8List image, PrintAlign align = PrintAlign.LEFT}) async {
     return GertecResponse.fromJson(
         await GertecPrinterPlatform.instance.printImage(image, align.value) ??
             '{}');
@@ -70,10 +70,14 @@ class GertecPrinter {
   Future<GertecResponse> printerState() async {
     final state = GertecResponse.fromJson(
         await GertecPrinterPlatform.instance.printerState() ?? '{}');
-    return state.copyWith(
-        content: PrinterState.values
-            .where((pState) => pState.index == (state.content as int))
-            .first);
+    PrinterState matchedState;
+    for (var pState in PrinterState.values) {
+      if (pState.value == state.content) {
+        matchedState = pState;
+        break;
+      }
+    }
+    return state.copyWith(content: matchedState);
   }
 
   Future<void> wrap({

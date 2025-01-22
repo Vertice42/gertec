@@ -4,15 +4,15 @@ import 'package:gertec/core/helpers/constants.dart';
 class GertecText {
   final String text;
   FontSize fontSize;
-  bool? bold;
-  bool? underline;
-  bool? wordwrap;
-  int? lineHeight;
-  int? letterSpacing;
-  int? marginLeft;
+  bool bold;
+  bool underline;
+  bool wordwrap;
+  int lineHeight;
+  int letterSpacing;
+  int marginLeft;
   PrintAlign algin;
   GertecText({
-    required this.text,
+     this.text,
     this.fontSize = FontSize.NORMAL,
     this.algin = PrintAlign.LEFT,
     this.bold,
